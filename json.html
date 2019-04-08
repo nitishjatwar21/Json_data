@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title></title>
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 	<style>
+tr, table, td{
+	border: 2px solid black;
+	border-collapse: collapse;
+	margin-top: 1px;
+}
+table#table21 tr:nth-child(even) {
+  background-color: #d3d3d3;
+}
+table#table21 tr:nth-child(odd) {
+ background-color: #f2f3f4;
+}
+table#table21 th {
+  background-color: black;
+  color: white;
+}
+
+</style>
+ </head>
+ <body>
+
+ 	<table id="table21">
+ 		
+ 		<tr>
+
+ 			<th style="text-align: center;">Id</th>
+ 			<th style="text-align: center;">Title</th>
+ 			<th style="text-align: center;">Body</th>
+		</tr>
+
+		
+ 	</table>
+
+
+ 	
+ 	<script>
+ 		$(document).ready(function(){
+ 			$.getJSON("https://jsonplaceholder.typicode.com/posts",function(data){
+ 				var data21 ='';
+ 				$.each(data,function(key,value){
+ 					data21 += '<tr>';
+ 					data21 += '<td>'+value.id+'</td>';
+ 					data21 += '<td>'+value.title+'</td>';
+ 					data21 += '<td>'+value.body+'</td>';
+ 					data21 += '</tr>';
+ 				});
+ 				$('#table21').append(data21);
+
+ 			});
+ 		});
+ 	</script>
+ 
+ </body>
+ </html>
